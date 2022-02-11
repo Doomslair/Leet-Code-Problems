@@ -9,48 +9,9 @@
 Return the number of tuples you can make that all add up to zero when given 4 interger arrays. You can only access one element in each int array to make any given tuple.
 */
 
-// High level strategy--Naive solution
-// Create and store every possible tuple that can be created
-// map over the array of tuples and reduce each of these tuples
-// for every tuple that reduces to zero, increment tuples count
-// return tuples count
-/*
- var fourSumCount = function(nums1, nums2, nums3, nums4) {
-  let tuplesCount = 0
-  let tuples = [];
-  // for every element in the first array
-  for (let i = 0; i < nums1.length; i++) {
-    // for every element in the second array
-    for (let j = 0; j < nums2.length; j++) {
-      // for every element in the third array
-      for (let k = 0; k < nums3.length; k++) {
-        // for every element in the fourth array
-        for (let l = 0; l < nums4.length; l++) {
-          // create tuples from positions [i][j][k][l] and push them onto tuples
-          let arr = [nums1[i], nums2[j], nums3[k], nums4[l]];
-          tuples.push(arr);
-        }
-      }
-    }
-  }
-  // map over tuples, for array in the tuple,
-  tuples.map((array) => {
-    // call reduce on it and set it equal to result
-    let res = array.reduce((previousValue, currentValue) => previousValue + currentValue)
-    // if result is equal to zero
-    if (res === 0) {
-      // increment tuplesCount
-      tuplesCount++;
-    }
-  })
-  // return tuplesCount
-  return tuplesCount;
-};
-*/
 
-// Naive solution fails on test 19 because of large input size.
 // More Optimized Solution
-/*
+
 var fourSumCount = function (nums1, nums2, nums3, nums4) {
   // let tuples count equal 0
   let tuplesCount = 0;
@@ -115,11 +76,7 @@ var fourSumCount = function (nums1, nums2, nums3, nums4) {
   // return the valid tuples count
   return tuplesCount;
 };
-*/
-// This code timed out, too. Whoops.
-// Time to go in the opposite direction and go super simple.
-var fourSumCount = function (nums1, nums2, nums3, nums4) {
-}
+
 
 
 nums1 = [0, 0, 0, 1, 1, 2], nums2 = [0, 0, -1, -2, -1, 2], nums3 = [0, 0, 0, 0, 0, 0], nums4 = [0, 0, 0, 0, 0, 0]
@@ -130,3 +87,62 @@ console.log(fourSumCount(nums1, nums2, nums3, nums4));
 // otherwise
 // if the numbers do not add up to zero
 // check the last array for a negation number
+// High level strategy--Naive solution
+// Create and store every possible tuple that can be created
+// map over the array of tuples and reduce each of these tuples
+// for every tuple that reduces to zero, increment tuples count
+// return tuples count
+/*
+ var fourSumCount = function(nums1, nums2, nums3, nums4) {
+  let tuplesCount = 0
+  let tuples = [];
+  // for every element in the first array
+  for (let i = 0; i < nums1.length; i++) {
+    // for every element in the second array
+    for (let j = 0; j < nums2.length; j++) {
+      // for every element in the third array
+      for (let k = 0; k < nums3.length; k++) {
+        // for every element in the fourth array
+        for (let l = 0; l < nums4.length; l++) {
+          // create tuples from positions [i][j][k][l] and push them onto tuples
+          let arr = [nums1[i], nums2[j], nums3[k], nums4[l]];
+          tuples.push(arr);
+        }
+      }
+    }
+  }
+  // map over tuples, for array in the tuple,
+  tuples.map((array) => {
+    // call reduce on it and set it equal to result
+    let res = array.reduce((previousValue, currentValue) => previousValue + currentValue)
+    // if result is equal to zero
+    if (res === 0) {
+      // increment tuplesCount
+      tuplesCount++;
+    }
+  })
+  // return tuplesCount
+  return tuplesCount;
+};
+*/
+// var fourSumCount = function (nums1, nums2, nums3, nums4) {
+//   let count = 0;
+//   for (let i = 0; i < nums1.length; i++) {
+//     // for every element in the second array
+//     for (let j = 0; j < nums2.length; j++) {
+//       // for every element in the third array
+//       for (let k = 0; k < nums3.length; k++) {
+//         // for every element in the fourth array
+//         for (let l = 0; l < nums4.length; l++) {
+//           // create tuples from positions [i][j][k][l] and push them onto tuples
+//           if ((nums1[i] + nums2[j] + nums3[k] + nums4[l]) === 0) {
+//             count++
+//           }
+//         }
+//       }
+//     }
+//   }
+//   return count;
+// }
+
+// Naive solution fails on test 19 because of large input size.
